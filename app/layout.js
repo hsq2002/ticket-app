@@ -1,9 +1,9 @@
 import { Inter } from 'next/font/google'
 import Nav from "./(components)/Nav";
 import './globals.css'
-
 import {config} from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import AuthProvider from "./(components)/AuthProvider";
 
 config.autoAddCss = false;
 
@@ -17,6 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <AuthProvider>
       <body className={inter.className}>
       <div className="flex flex-col h-screen max-h-screen">
         <Nav />
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
           </div>
         </div>
       </body>
+      </AuthProvider>
     </html>
   )
 }
